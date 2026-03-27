@@ -4,9 +4,116 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Chirag Bali | Professional Portfolio</title>
-    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;600;800&family=Plus+Jakarta+Sans:wght@300;400;600;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@400;700;900&family=Plus+Jakarta+Sans:wght@300;400;600;800&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-    <link rel="stylesheet" href="style.css">
+    
+    <style>
+        :root {
+            --bg: #020202; 
+            --surface: rgba(15, 15, 20, 0.8);
+            --surface-accent: rgba(25, 25, 35, 1);
+            --primary: #00f2ff; 
+            --primary-glow: rgba(0, 242, 255, 0.4);
+            --text-main: #ffffff;
+            --text-muted: #94a3b8;
+            --border: rgba(255, 255, 255, 0.07);
+        }
+
+        * { margin: 0; padding: 0; box-sizing: border-box; scroll-behavior: smooth; }
+
+        body {
+            background-color: var(--bg);
+            color: var(--text-main);
+            font-family: 'Plus Jakarta Sans', sans-serif;
+            overflow-x: hidden;
+            -webkit-font-smoothing: antialiased;
+        }
+
+        .mesh {
+            position: fixed;
+            top: 0; left: 0; width: 100%; height: 100%;
+            background-image: 
+                linear-gradient(rgba(0, 242, 255, 0.03) 1px, transparent 1px),
+                linear-gradient(90deg, rgba(0, 242, 255, 0.03) 1px, transparent 1px);
+            background-size: 50px 50px;
+            z-index: -1;
+            mask-image: radial-gradient(circle at center, black, transparent 80%);
+        }
+
+        nav {
+            position: fixed; top: 20px; left: 50%; transform: translateX(-50%);
+            width: 90%; max-width: 1200px; z-index: 2000;
+            background: rgba(5, 5, 5, 0.8);
+            backdrop-filter: blur(15px); -webkit-backdrop-filter: blur(15px);
+            border: 1px solid var(--border); border-radius: 100px;
+            padding: 0.8rem 2rem; display: flex; justify-content: space-between; align-items: center;
+        }
+
+        .logo { font-family: 'Outfit', sans-serif; font-weight: 800; font-size: 1.5rem; color: #fff; text-decoration: none; }
+        .logo span { color: var(--primary); }
+
+        .nav-links { display: flex; gap: 2rem; list-style: none; }
+        .nav-links a { text-decoration: none; color: var(--text-muted); font-size: 0.8rem; font-weight: 600; text-transform: uppercase; letter-spacing: 1px; transition: 0.3s; }
+        .nav-links a:hover { color: var(--primary); }
+
+        header { height: 100vh; display: flex; flex-direction: column; justify-content: center; align-items: center; text-align: center; }
+        .hero-title { font-family: 'Outfit', sans-serif; font-size: clamp(3.5rem, 15vw, 9rem); font-weight: 900; line-height: 0.85; letter-spacing: -4px; transition: 0.3s; }
+        .hero-title:hover { animation: glitch 0.3s linear infinite; color: var(--primary); }
+        .hero-badge { background: rgba(0, 242, 255, 0.1); border: 1px solid var(--primary); color: var(--primary); padding: 5px 15px; border-radius: 4px; font-size: 0.7rem; font-weight: 800; letter-spacing: 3px; margin-bottom: 2rem; }
+        .hero-tagline { max-width: 650px; color: var(--text-muted); font-size: 1.2rem; font-weight: 300; }
+
+        .container { max-width: 1200px; margin: 0 auto 50px; padding: 0 20px; display: grid; grid-template-columns: repeat(12, 1fr); gap: 24px; }
+        .card { background: var(--surface); border: 1px solid var(--border); border-radius: 24px; padding: 2.5rem; transition: all 0.4s ease; opacity: 0; transform: translateY(30px); }
+        .card.visible { opacity: 1; transform: translateY(0); }
+        .card:hover { border-color: var(--primary); background: var(--surface-accent); transform: translateY(-10px); box-shadow: 0 20px 40px rgba(0,0,0,0.6); }
+
+        .span-8 { grid-column: span 8; }
+        .span-4 { grid-column: span 4; }
+        .span-6 { grid-column: span 6; }
+        .row-2 { grid-row: span 2; }
+
+        h3 { color: var(--primary); font-family: 'Outfit', sans-serif; font-size: 1.1rem; text-transform: uppercase; letter-spacing: 2px; margin-bottom: 1.5rem; display: flex; align-items: center; gap: 12px; }
+
+        .brand-chip, .skill-tag { display: inline-block; background: rgba(255,255,255,0.05); border: 1px solid var(--border); padding: 6px 14px; border-radius: 8px; font-size: 0.75rem; margin: 0 8px 12px 0; font-weight: 700; transition: 0.3s; }
+        .brand-chip:hover { background: #fff; color: #000; }
+        .skill-tag:hover { background: var(--primary); color: #000; }
+
+        .timeline-item { border-left: 2px solid var(--primary); padding: 0 0 30px 25px; position: relative; }
+        .timeline-item span { color: var(--primary); font-weight: 800; font-size: 0.75rem; display: block; margin-bottom: 5px; }
+        .timeline-item h4 { font-size: 1.1rem; margin-bottom: 5px; }
+
+        /* ORIGINAL SCROLLER STYLE */
+        .mun-scroller { max-height: 300px; overflow-y: auto; padding-right: 10px; }
+        .mun-scroller::-webkit-scrollbar { width: 3px; }
+        .mun-scroller::-webkit-scrollbar-thumb { background: var(--primary); }
+        
+        .award { background: rgba(255,255,255,0.02); padding: 15px; border-radius: 12px; margin-bottom: 10px; border: 1px solid var(--border); transition: 0.3s; }
+        .award strong { color: var(--primary); font-size: 0.95rem; }
+        .award p { font-size: 0.8rem; color: var(--text-muted); margin-top: 5px; }
+
+        /* CONNECT SECTION */
+        #connect { padding: 100px 20px; max-width: 1200px; margin: 0 auto; text-align: center; }
+        .connect-title { font-family: 'Outfit', sans-serif; font-size: clamp(2.5rem, 8vw, 4rem); margin-bottom: 60px; text-transform: uppercase; letter-spacing: -2px; }
+        .contact-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 24px; }
+        .contact-box { background: var(--surface); border: 1px solid var(--border); padding: 40px 20px; border-radius: 24px; text-decoration: none; color: white; transition: 0.4s; display: flex; flex-direction: column; align-items: center; gap: 20px; opacity: 0; transform: translateY(30px); }
+        .contact-box.visible { opacity: 1; transform: translateY(0); }
+        .contact-box i { font-size: 2.5rem; color: var(--primary); transition: 0.4s; }
+        .contact-box:hover { border-color: var(--primary); background: var(--surface-accent); transform: translateY(-12px); box-shadow: 0 0 40px var(--primary-glow); }
+
+        footer { padding: 60px 0; text-align: center; border-top: 1px solid var(--border); }
+
+        @keyframes glitch {
+            0% { text-shadow: 2px 2px #ff00c1, -2px -2px #00fff9; }
+            50% { text-shadow: -2px -2px #ff00c1, 2px 2px #00fff9; }
+            100% { text-shadow: 2px 2px #ff00c1, -2px -2px #00fff9; }
+        }
+
+        @media (max-width: 992px) {
+            .container, .contact-grid { grid-template-columns: 1fr; }
+            .span-8, .span-4, .span-6, .row-2 { grid-column: span 1; grid-row: auto; }
+            .nav-links { display: none; }
+        }
+    </style>
 </head>
 <body>
 
@@ -18,48 +125,40 @@
             <li><a href="#about">About</a></li>
             <li><a href="#work">Experience</a></li>
             <li><a href="#mun">Awards</a></li>
+            <li><a href="#connect">Connect</a></li>
         </ul>
-        <a href="https://www.linkedin.com/in/chirag-bali-922b10245/" target="_blank" class="nav-linkedin">
-            <i class="fab fa-linkedin"></i> LinkedIn
-        </a>
+        <a href="https://www.linkedin.com/in/chirag-bali-922b10245/" target="_blank" style="background:var(--primary); color:#000; padding:8px 20px; border-radius:50px; font-weight:800; text-decoration:none;">LINKEDIN</a>
     </nav>
 
     <header>
         <div class="hero-badge">Digital Business & Esports</div>
-        <h1 class="hero-title">CHIRAG<br>BALI</h1>
-        <p class="hero-tagline">
-            IIM Bangalore student & Esports professional leading projects at the intersection of gaming and digital business.
-        </p>
+        <h1 class="hero-title">CHIRAG BALI</h1>
+        <p class="hero-tagline">IIM Bangalore student & Esports professional leading projects at the intersection of gaming and digital business.</p>
     </header>
 
     <div class="container">
         <section class="card span-8 row-2" id="about">
             <h3><i class="fas fa-user-circle"></i> Profile</h3>
-            <p class="summary-text">
-                Results-driven Esports Management Professional with experience in leading high-stakes projects at Reckoning Esports and TWOB. 
-                I specialize in driving operational efficiency (40% improvement in past roles) and building bridges between Tier-1 brands and professional rosters.
-                Currently pursuing BBA in Digital Business at IIM Bangalore.
+            <p style="font-size: 1.15rem; color: var(--text-muted); line-height: 1.7;">
+                Results-driven Esports Management Professional with experience in leading high-stakes projects at <strong>Reckoning Esports</strong> and <strong>TWOB</strong>. I specialize in driving operational efficiency (40% improvement in past roles) and building bridges between Tier-1 brands and professional rosters.
+                <br><br>
+                Currently pursuing BBA in Digital Business at <strong>IIM Bangalore</strong>.
             </p>
-            <div class="brands">
-                <span class="brand-chip">TATA</span>
-                <span class="brand-chip">SAMSUNG</span>
-                <span class="brand-chip">KRAFTON</span>
-                <span class="brand-chip">MX PLAYER</span>
-                <span class="brand-chip">AMD</span>
-                <span class="brand-chip">GIGABYTE</span>
+            <div style="margin-top: 30px;">
+                <span class="brand-chip">TATA</span><span class="brand-chip">SAMSUNG</span><span class="brand-chip">KRAFTON</span><span class="brand-chip">MX PLAYER</span><span class="brand-chip">AMD</span><span class="brand-chip">GIGABYTE</span>
             </div>
         </section>
 
         <section class="card span-4 row-2">
             <h3><i class="fas fa-bolt"></i> Expertise</h3>
-            <div class="skill-container">
+            <div>
                 <span class="skill-tag">Project Management</span>
                 <span class="skill-tag">Event Operations</span>
                 <span class="skill-tag">Influencer Marketing</span>
                 <span class="skill-tag">Structural Analysis</span>
                 <span class="skill-tag">Strategic Planning</span>
             </div>
-            <h3 style="margin-top: 1rem;"><i class="fas fa-globe"></i> Languages</h3>
+            <h3 style="margin-top: 2rem;"><i class="fas fa-globe"></i> Languages</h3>
             <p style="color: var(--text-muted); font-size: 0.9rem;">English, Hindi, Punjabi</p>
         </section>
 
@@ -68,12 +167,12 @@
             <div class="timeline-item">
                 <span>2023 — PRESENT</span>
                 <h4>Reckoning Esports (Yuvin Esports)</h4>
-                <p>Onboarded Tier-1 rosters and streamlined workflows by 40%. Managed LAN event logistics and brand deliverables.</p>
+                <p style="color: var(--text-muted);">Onboarded Tier-1 rosters and streamlined workflows by 40%. Managed LAN event logistics and brand deliverables.</p>
             </div>
             <div class="timeline-item">
                 <span>2022 — 2023</span>
                 <h4>The World of Battle (TWOB)</h4>
-                <p>Lead manager for offline events and social media brand visibility campaigns.</p>
+                <p style="color: var(--text-muted);">Lead manager for offline events and social media brand visibility campaigns.</p>
             </div>
         </section>
 
@@ -81,11 +180,11 @@
             <h3><i class="fas fa-graduation-cap"></i> Education</h3>
             <div class="timeline-item">
                 <h4>IIM Bangalore</h4>
-                <p>BBA in Digital Business</p>
+                <p style="color: var(--text-muted);">BBA in Digital Business</p>
             </div>
             <div class="timeline-item">
                 <h4>GGDSD Chandigarh</h4>
-                <p>B.Com in Tax Planning</p>
+                <p style="color: var(--text-muted);">B.Com in Tax Planning</p>
             </div>
         </section>
 
@@ -101,22 +200,50 @@
 
         <section class="card span-6">
             <h3><i class="fas fa-star"></i> Recognition</h3>
-            <p style="color: var(--text-muted); font-size: 1rem;">
+            <p style="color: var(--text-muted); line-height: 1.6;">
                 Head Boy at PML SD Public School (2024-25). Co-founded Epigrotive Gaming. Managed Samsung Store events and Krafton CCT.
             </p>
         </section>
     </div>
 
-    <footer>
-        <div class="footer-socials">
-            <a href="https://www.linkedin.com/in/chirag-bali-922b10245/" target="_blank"><i class="fab fa-linkedin"></i></a>
-            <a href="mailto:chiragbali07@gmail.com"><i class="fas fa-envelope"></i></a>
-            <a href="tel:+917347652452"><i class="fas fa-phone"></i></a>
+    <section id="connect">
+        <h2 class="connect-title">Let's <span style="color:var(--primary)">Connect</span></h2>
+        <div class="contact-grid">
+            <a href="mailto:chiragbali07@gmail.com" class="contact-box card">
+                <i class="fas fa-envelope"></i>
+                <p style="color:var(--primary); font-size:0.75rem; font-weight:800; letter-spacing:2px;">EMAIL</p>
+                <p class="contact-value">chiragbali07@gmail.com</p>
+            </a>
+            <a href="tel:+917347652452" class="contact-box card">
+                <i class="fas fa-phone"></i>
+                <p style="color:var(--primary); font-size:0.75rem; font-weight:800; letter-spacing:2px;">PHONE</p>
+                <p class="contact-value">+91 73476 52452</p>
+            </a>
+            <a href="https://www.linkedin.com/in/chirag-bali-922b10245/" target="_blank" class="contact-box card">
+                <i class="fab fa-linkedin"></i>
+                <p style="color:var(--primary); font-size:0.75rem; font-weight:800; letter-spacing:2px;">LINKEDIN</p>
+                <p class="contact-value">Chirag Bali</p>
+            </a>
         </div>
-        <p style="color: #444; font-size: 0.7rem; text-transform: uppercase; letter-spacing: 2px;">
-            &copy; 2025 Chirag Bali | Built for IIMB Course
+    </section>
+
+    <footer>
+        <p style="color: #444; font-size: 0.7rem; text-transform: uppercase; letter-spacing: 3px;">
+            &copy; 2026 CHIRAG BALI // BUILT FOR IIMB COURSE
         </p>
     </footer>
 
+    <script>
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('visible');
+                }
+            });
+        }, { threshold: 0.1 });
+
+        document.querySelectorAll('.card').forEach(card => observer.observe(card));
+        document.querySelectorAll('.contact-box').forEach(box => observer.observe(box));
+    </script>
 </body>
 </html>
