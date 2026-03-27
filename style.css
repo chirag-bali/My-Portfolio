@@ -1,272 +1,124 @@
-:root {
-    --bg: #050505;
-    --surface: #0f0f12;
-    --surface-accent: #16161a;
-    --primary: #3b82f6;
-    --primary-light: #60a5fa;
-    --text-main: #ffffff;
-    --text-muted: #94a3b8;
-    --border: rgba(255, 255, 255, 0.1);
-    --transition: all 0.4s cubic-bezier(0.16, 1, 0.3, 1);
-}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Chirag Bali | Digital Business & Esports</title>
+    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@400;700;900&family=Plus+Jakarta+Sans:wght@300;400;600;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
 
-* {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
-    scroll-behavior: smooth;
-}
+    <div class="mesh"></div>
 
-body {
-    background-color: var(--bg);
-    color: var(--text-main);
-    font-family: 'Plus Jakarta Sans', sans-serif;
-    overflow-x: hidden;
-    -webkit-font-smoothing: antialiased;
-}
+    <nav>
+        <a href="#" class="logo">C<span>B.</span></a>
+        <ul class="nav-links">
+            <li><a href="#about">About</a></li>
+            <li><a href="#work">Experience</a></li>
+            <li><a href="#mun">Awards</a></li>
+        </ul>
+        <a href="https://www.linkedin.com/in/chirag-bali-922b10245/" target="_blank" class="nav-linkedin">
+            <i class="fab fa-linkedin"></i> CONNECT
+        </a>
+    </nav>
 
-.mesh {
-    position: fixed;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    background: 
-        radial-gradient(circle at 10% 10%, rgba(59, 130, 246, 0.05) 0%, transparent 40%),
-        radial-gradient(circle at 90% 90%, rgba(59, 130, 246, 0.05) 0%, transparent 40%);
-    z-index: -1;
-}
+    <header>
+        <div class="hero-badge">System Status: Active // IIM Bangalore</div>
+        <h1 class="hero-title">CHIRAG<br>BALI</h1>
+        <p class="hero-tagline">
+            Specializing in **Esports Operations** & **Digital Strategy**. 
+            Transforming the gaming landscape through data-driven management.
+        </p>
+    </header>
 
-nav {
-    position: fixed;
-    top: 20px;
-    left: 50%;
-    transform: translateX(-50%);
-    width: 90%;
-    max-width: 1200px;
-    z-index: 2000;
-    background: rgba(15, 15, 18, 0.8);
-    backdrop-filter: blur(20px);
-    -webkit-backdrop-filter: blur(20px);
-    border: 1px solid var(--border);
-    border-radius: 100px;
-    padding: 0.8rem 2rem;
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    box-shadow: 0 10px 30px rgba(0,0,0,0.5);
-}
+    <div class="container">
+        <section class="card span-8 row-2" id="about">
+            <h3><i class="fas fa-terminal"></i> 01_Profile</h3>
+            <p class="summary-text">
+                Results-driven Esports Professional. I bridge the gap between Tier-1 brands and professional rosters. 
+                Currently scaling operations at Reckoning Esports while pursuing Digital Business at <span style="color:var(--primary)">IIM Bangalore</span>.
+            </p>
+            <div class="brands">
+                <span class="brand-chip">TATA</span>
+                <span class="brand-chip">SAMSUNG</span>
+                <span class="brand-chip">KRAFTON</span>
+                <span class="brand-chip">MX PLAYER</span>
+                <span class="brand-chip">AMD</span>
+            </div>
+        </section>
 
-.logo {
-    font-family: 'Outfit', sans-serif;
-    font-weight: 800;
-    font-size: 1.5rem;
-    color: #fff;
-    text-decoration: none;
-    letter-spacing: -1px;
-}
+        <section class="card span-4 row-2">
+            <h3><i class="fas fa-microchip"></i> 02_Expertise</h3>
+            <div class="skill-container">
+                <span class="skill-tag">Project Management</span>
+                <span class="skill-tag">Event Ops</span>
+                <span class="skill-tag">Influencer Marketing</span>
+                <span class="skill-tag">Strategic Planning</span>
+            </div>
+            <h3 style="margin-top: 2rem;"><i class="fas fa-code-branch"></i> Stack</h3>
+            <p style="color: var(--text-muted); font-size: 0.8rem; letter-spacing: 1px;">
+                Operations // Logistics // Brand Strategy
+            </p>
+        </section>
 
-.logo span { color: var(--primary); }
+        <section class="card span-8" id="work">
+            <h3><i class="fas fa-layer-group"></i> 03_Experience</h3>
+            <div class="timeline-item">
+                <span>2023 — PRESENT</span>
+                <h4>Reckoning Esports</h4>
+                <p>Streamlined workflows by 40% and managed LAN logistics for Tier-1 rosters.</p>
+            </div>
+            <div class="timeline-item">
+                <span>2022 — 2023</span>
+                <h4>The World of Battle (TWOB)</h4>
+                <p>Lead Manager for offline national-level events.</p>
+            </div>
+        </section>
 
-.nav-links {
-    display: flex;
-    gap: 2rem;
-    list-style: none;
-    align-items: center;
-}
+        <section class="card span-4">
+            <h3><i class="fas fa-user-graduate"></i> 04_Education</h3>
+            <div class="timeline-item">
+                <h4>IIM Bangalore</h4>
+                <p>BBA in Digital Business</p>
+            </div>
+            <div class="timeline-item">
+                <h4>GGDSD Chandigarh</h4>
+                <p>B.Com in Tax Planning</p>
+            </div>
+        </section>
 
-.nav-links a {
-    text-decoration: none;
-    color: var(--text-muted);
-    font-size: 0.85rem;
-    font-weight: 600;
-    transition: var(--transition);
-    text-transform: uppercase;
-    letter-spacing: 1px;
-}
+        <section class="card span-6 row-2" id="mun">
+            <h3><i class="fas fa-trophy"></i> 05_Achievements</h3>
+            <div class="mun-scroller">
+                <div class="award"><strong>SDMUN — Best Delegate</strong><p>Winner in the AIPPM Committee.</p></div>
+                <div class="award"><strong>IIMB NOVA Winner</strong><p>Case competition victory.</p></div>
+                <div class="award"><strong>MRA MUN — Best Delegate</strong><p>Distinction in UNCSW.</p></div>
+                <div class="award"><strong>DKODE MUN — Best Delegate</strong><p>Parliamentary debate honor.</p></div>
+            </div>
+        </section>
 
-.nav-links a:hover { color: #fff; }
+        <section class="card span-6">
+            <h3><i class="fas fa-satellite"></i> 06_Network</h3>
+            <p style="color: var(--text-muted); font-size: 0.95rem; line-height: 1.6;">
+                Head Boy at PML SD Public School (2024-25). 
+                Co-founded Epigrotive Gaming. 
+                Managed Samsung Store events & Krafton CCT.
+            </p>
+        </section>
+    </div>
 
-.nav-linkedin {
-    background: var(--primary);
-    color: white !important;
-    padding: 8px 20px;
-    border-radius: 50px;
-    font-size: 0.8rem !important;
-    font-weight: 700;
-    display: flex;
-    align-items: center;
-    gap: 8px;
-    transition: var(--transition);
-}
+    <footer>
+        <div class="footer-socials">
+            <a href="https://www.linkedin.com/in/chirag-bali-922b10245/" target="_blank"><i class="fab fa-linkedin"></i></a>
+            <a href="mailto:chiragbali07@gmail.com"><i class="fas fa-envelope"></i></a>
+            <a href="tel:+917347652452"><i class="fas fa-phone"></i></a>
+        </div>
+        <p style="color: #333; font-size: 0.65rem; text-transform: uppercase; letter-spacing: 3px;">
+            &copy; 2026 CHIRAG BALI // ENCRYPTED CONNECTION
+        </p>
+    </footer>
 
-.nav-linkedin:hover { transform: translateY(-2px); box-shadow: 0 5px 15px rgba(59, 130, 246, 0.3); }
-
-header {
-    height: 100vh;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    text-align: center;
-    padding: 0 5%;
-}
-
-.hero-title {
-    font-family: 'Outfit', sans-serif;
-    font-size: clamp(3rem, 12vw, 8rem);
-    font-weight: 800;
-    line-height: 0.9;
-    margin-bottom: 1.5rem;
-    letter-spacing: -4px;
-    background: linear-gradient(to bottom, #fff 50%, #666 100%);
-    -webkit-background-clip: text;
-    -webkit-text-fill-color: transparent;
-}
-
-.hero-badge {
-    display: inline-block;
-    background: rgba(59, 130, 246, 0.1);
-    border: 1px solid rgba(59, 130, 246, 0.2);
-    padding: 8px 20px;
-    border-radius: 50px;
-    font-size: 0.75rem;
-    font-weight: 800;
-    color: var(--primary-light);
-    text-transform: uppercase;
-    letter-spacing: 2px;
-    margin-bottom: 2rem;
-}
-
-.hero-tagline {
-    font-size: 1.2rem;
-    color: var(--text-muted);
-    max-width: 600px;
-    font-weight: 300;
-}
-
-.container {
-    max-width: 1200px;
-    margin: 0 auto 100px;
-    padding: 0 20px;
-    display: grid;
-    grid-template-columns: repeat(12, 1fr);
-    grid-auto-rows: minmax(160px, auto);
-    gap: 24px;
-}
-
-.card {
-    background: var(--surface);
-    border: 1px solid var(--border);
-    border-radius: 32px;
-    padding: 2.5rem;
-    transition: var(--transition);
-    display: flex;
-    flex-direction: column;
-    position: relative;
-    overflow: hidden;
-    scroll-margin-top: 100px;
-}
-
-.card:hover {
-    border-color: var(--primary);
-    transform: translateY(-5px);
-    background: var(--surface-accent);
-}
-
-.card h3 {
-    font-family: 'Outfit', sans-serif;
-    font-size: 1.4rem;
-    margin-bottom: 1.5rem;
-    display: flex;
-    align-items: center;
-    gap: 12px;
-}
-
-.card h3 i { color: var(--primary); font-size: 1.1rem; }
-
-.span-8 { grid-column: span 8; }
-.span-4 { grid-column: span 4; }
-.span-6 { grid-column: span 6; }
-.row-2 { grid-row: span 2; }
-
-.summary-text { font-size: 1.15rem; color: var(--text-muted); line-height: 1.7; font-weight: 300; }
-.highlight { color: #fff; font-weight: 600; }
-
-.brands {
-    display: flex;
-    flex-wrap: wrap;
-    gap: 10px;
-    margin-top: 1.5rem;
-}
-
-.brand-chip {
-    background: rgba(255,255,255,0.05);
-    padding: 6px 14px;
-    border-radius: 8px;
-    font-size: 0.75rem;
-    font-weight: 700;
-    border: 1px solid var(--border);
-}
-
-.timeline-item {
-    border-left: 2px solid var(--border);
-    padding-left: 20px;
-    margin-bottom: 25px;
-    position: relative;
-}
-
-.timeline-item span { font-size: 0.75rem; color: var(--primary); font-weight: 800; display: block; margin-bottom: 5px; }
-.timeline-item h4 { font-size: 1.1rem; margin-bottom: 5px; }
-.timeline-item p { font-size: 0.9rem; color: var(--text-muted); }
-
-.skill-tag {
-    display: inline-block;
-    background: rgba(59, 130, 246, 0.1);
-    color: var(--primary-light);
-    padding: 8px 16px;
-    border-radius: 12px;
-    font-size: 0.85rem;
-    margin: 0 8px 12px 0;
-    font-weight: 600;
-}
-
-.mun-scroller {
-    max-height: 300px;
-    overflow-y: auto;
-    padding-right: 10px;
-}
-.mun-scroller::-webkit-scrollbar { width: 3px; }
-.mun-scroller::-webkit-scrollbar-thumb { background: var(--primary); }
-
-.award {
-    background: rgba(255,255,255,0.02);
-    padding: 15px;
-    border-radius: 16px;
-    margin-bottom: 10px;
-    border: 1px solid var(--border);
-}
-.award strong { color: var(--primary-light); font-size: 0.95rem; }
-.award p { font-size: 0.8rem; color: var(--text-muted); }
-
-footer {
-    padding: 80px 20px;
-    text-align: center;
-    background: #000;
-    border-top: 1px solid var(--border);
-}
-
-.footer-socials { display: flex; justify-content: center; gap: 30px; margin-bottom: 30px; }
-.footer-socials a { color: var(--text-muted); font-size: 1.5rem; transition: 0.3s; }
-.footer-socials a:hover { color: var(--primary); transform: translateY(-3px); }
-
-@media (max-width: 992px) {
-    .container { grid-template-columns: repeat(1, 1fr); }
-    .span-8, .span-4, .span-6, .row-2 { grid-column: span 1; grid-row: span 1; }
-    nav { padding: 0.8rem 1.5rem; width: 95%; }
-}
-
-@media (max-width: 600px) {
-    .nav-links { display: none; }
-    .hero-title { letter-spacing: -2px; }
-}
+</body>
+</html>
